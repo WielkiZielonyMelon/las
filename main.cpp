@@ -20,12 +20,45 @@ int main(int argc, char * argv[]) {
         }
 
         if (option == Game::MainMenu::Option::NEW_GAME) {
-            int year = 10;
-            int serfs = 100;
-            int land = 1000;
-            int grain = 1000;
+            while (true) {
+                int year = 10;
+                int serfs = 100;
+                int land = 1000;
+                int grain = 1000;
 
-            Game::Overview::display(year, serfs, land, grain);
+                Game::Overview::displayOptions(year, serfs, land, grain);
+                option = Game::Overview::selectOption();
+
+                if (option == Game::Overview::END_TURN) {
+                    throw NotImplemented();
+                }
+
+                if (option == Game::Overview::BUY_LAND) {
+                    throw NotImplemented();
+                }
+
+                if (option == Game::Overview::SELL_LAND) {
+                    throw NotImplemented();
+                }
+
+                if (option == Game::Overview::BUY_GRAIN) {
+                    throw NotImplemented();
+                }
+
+                if (option == Game::Overview::SELL_GRAIN) {
+                    throw NotImplemented();
+                }
+
+                if (option == Game::Overview::PLANT) {
+                    throw NotImplemented();
+                }
+
+                if (option == Game::Overview::QUIT) {
+                    throw NotImplemented();
+                }
+
+                continue;
+            }
         }
 
         if (option == Game::MainMenu::Option::CONTINUE) {
