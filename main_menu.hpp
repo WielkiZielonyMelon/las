@@ -11,9 +11,10 @@ public:
         FIRST_VALID = NEW_GAME,
         LAST_VALID = EXIT,
 
-        ERROR = -1,
+        ERROR = -1
     };
 
     static int selectOption();
+    static void displayOptions();
 };
 } // namespace Game

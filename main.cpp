@@ -3,11 +3,18 @@
 #include "main_menu.hpp"
 #include "overview.hpp"
 
+class NotImplemented : public std::logic_error {
+public:
+    NotImplemented() : std::logic_error("Function not yet implemented") { };
+};
+
 int main(int argc, char * argv[]) {
     using std::cout;
     using std::endl;
-    int option;
-    while ((option = Game::MainMenu::selectOption()) != Game::MainMenu::Option::EXIT) {
+
+    while (true) {
+        Game::MainMenu::displayOptions();
+        int option = Game::MainMenu::selectOption();
         if (option == Game::MainMenu::Option::ERROR) {
             continue;
         }
@@ -21,8 +28,18 @@ int main(int argc, char * argv[]) {
             Game::Overview::display(year, serfs, land, grain);
         }
 
+        if (option == Game::MainMenu::Option::CONTINUE) {
+            throw NotImplemented();
+        }
 
-        cout << "You have selected: " << option << endl;
+        if (option == Game::MainMenu::Option::VIEW_HIGH) {
+            throw NotImplemented();
+        }
+
+        if (option == Game::MainMenu::Option::EXIT) {
+            break;
+        }
+
     }
 
     cout << "Quiting game." << endl;
