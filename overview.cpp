@@ -2,7 +2,7 @@
 
 #include "overview.hpp"
 
-namespace Game {
+namespace Las {
 using std::cout;
 using std::cin;
 using std::endl;
@@ -38,4 +38,4 @@ int Overview::selectOption() {
 
     return opt;
 }
-} // namespace Game
+} // namespace Las

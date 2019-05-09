@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Game {
+namespace Las {
 class MainMenu {
 public:
     enum Option {
@@ -17,4 +17,4 @@ public:
     static int selectOption();
     static void displayOptions();
 };
-} // namespace Game
+} // namespace Las

@@ -3,7 +3,7 @@
 #include "main_menu.hpp"
 
 
-namespace Game {
+namespace Las {
 using std::cout;
 using std::cin;
 using std::endl;
@@ -26,4 +26,4 @@ int MainMenu::selectOption() {
 
     return opt;
 }
-} // namespace Game
+} // namespace Las

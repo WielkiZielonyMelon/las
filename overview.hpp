@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Game {
+namespace Las {
 class Overview {
 public:
     enum Option {
@@ -20,4 +20,4 @@ public:
     static int selectOption();
     static void displayOptions(int year, int serfs, int land, int grain);
 };
-} // namespace Game
+} // namespace Las
