@@ -3,14 +3,12 @@
 #include "helpers.hpp"
 
 namespace Las {
-Game::Game() {
-    while (true) {
-        int year = 10;
-        int serfs = 100;
-        int land = 1000;
-        int grain = 1000;
+Game::Game(int _years, int _serfs, int _land, int _grain) :
+    years(_years), serfs(_serfs), land(_land), grain(_grain) {
 
-        Las::Overview::displayOptions(year, serfs, land, grain);
+    while (true) {
+
+        Las::Overview::displayOptions(currentYear, serfs, land, grain);
         int option = Las::Overview::selectOption();
 
         if (option == Las::Overview::END_TURN) {
