@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "game.hpp"
 #include "overview.hpp"
 #include "helpers.hpp"
@@ -12,7 +14,12 @@ Game::Game(int _years, int _serfs, int _land, int _grain) :
         int option = Las::Overview::selectOption();
 
         if (option == Las::Overview::END_TURN) {
-            throw NotImplemented();
+            if (hasGameFinished()) {
+                endGame();
+                return;
+            }
+
+            endTurn();
         }
 
         if (option == Las::Overview::BUY_LAND) {
@@ -41,5 +48,22 @@ Game::Game(int _years, int _serfs, int _land, int _grain) :
 
         continue;
     }
+}
+
+void Game::endTurn() {
+    ++currentYear;
+    --years;
+}
+
+bool Game::hasGameFinished() {
+    if (years <= 1) {
+        return true;
+    }
+
+    return false;
+}
+
+void Game::endGame() {
+    std::cout << "Fanfares!" << std::endl;
 }
 } // namespace Las
