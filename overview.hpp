@@ -18,6 +18,7 @@ public:
     };
 
     static int selectOption();
-    static void displayOptions(int year, int serfs, int land, int grain);
+    static void displayInfo(int year, int serfs, int land, int grain);
+    static void displayOptions();
 };
 } // namespace Las

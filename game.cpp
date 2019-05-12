@@ -7,8 +7,8 @@ Game::Game(int _years, int _serfs, int _land, int _grain) :
     years(_years), serfs(_serfs), land(_land), grain(_grain) {
 
     while (true) {
-
-        Las::Overview::displayOptions(currentYear, serfs, land, grain);
+        Las::Overview::displayInfo(currentYear, serfs, land, grain);
+        Las::Overview::displayOptions();
         int option = Las::Overview::selectOption();
 
         if (option == Las::Overview::END_TURN) {

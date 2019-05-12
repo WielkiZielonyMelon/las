@@ -3,7 +3,7 @@
 namespace Las {
 class Game {
 private:
-    int currentYear = 1;
+    int currentYear = 1320;
     int years;
     int serfs;
     int land;
