@@ -4,10 +4,13 @@
 #include "overview.hpp"
 #include "helpers.hpp"
 
+using std::cin;
+using std::cout;
+using std::endl;
+
 namespace Las {
 Game::Game(int _years, int _serfs, int _land, int _grain) :
     years(_years), serfs(_serfs), land(_land), grain(_grain) {
-
     while (true) {
         Las::Overview::displayInfo(currentYear, serfs, land, grain);
         Las::Overview::displayOptions();
@@ -23,11 +26,13 @@ Game::Game(int _years, int _serfs, int _land, int _grain) :
         }
 
         if (option == Las::Overview::BUY_LAND) {
-            throw NotImplemented();
+            buyLand();
+            continue;
         }
 
         if (option == Las::Overview::SELL_LAND) {
-            throw NotImplemented();
+            sellLand();
+            continue;
         }
 
         if (option == Las::Overview::BUY_GRAIN) {
@@ -39,7 +44,8 @@ Game::Game(int _years, int _serfs, int _land, int _grain) :
         }
 
         if (option == Las::Overview::PLANT) {
-            throw NotImplemented();
+            plant();
+            continue;
         }
 
         if (option == Las::Overview::QUIT) {
@@ -48,6 +54,74 @@ Game::Game(int _years, int _serfs, int _land, int _grain) :
 
         continue;
     }
+}
+
+void Game::buyLand() {
+    int amount;
+    int maxToBuy = grain / LAND_BUY_PRICE;
+    while (true) {
+        cout << "To buy one square meter of land you need " << LAND_BUY_PRICE;
+        cout << " bags of grain." << endl;
+        cout << "You have " << grain << " bags of grain." << endl;
+        cout << "You have " << land << " m^2 of land." << endl;
+        cout << "You can buy " << maxToBuy << " m^2 of land." << endl;
+        cout << "How much land do you want to buy?" << endl;
+        cin >> amount;
+
+        if (amount == 0) {
+            return;
+        }
+
+        if (amount < 0) {
+            cout << "Can't buy negative amount of land" << endl;
+            continue;
+        }
+
+        if (amount > maxToBuy) {
+            cout << "You can't afford to buy that much land" << endl;
+            continue;
+        }
+
+        break;
+    }
+
+    grain -= amount * LAND_BUY_PRICE;
+    land += amount;
+}
+
+void Game::sellLand() {
+    int amount;
+    while (true) {
+        cout << "For one square meter of land you will get " << LAND_SELL_PRICE;
+        cout << " bags of grain." << endl;
+        cout << "You have " << grain << " bags of grain." << endl;
+        cout << "You have " << land << " m^2 of land." << endl;
+        cout << "How much land do you want to sell?" << endl;
+        cin >> amount;
+
+        if (amount == 0) {
+            return;
+        }
+
+        if (amount < 0) {
+            cout << "Can't sell negative amount of land." << endl;
+            continue;
+        }
+
+        if (amount > land ) {
+            cout << "You sell more land than you have." << endl;
+            continue;
+        }
+
+        break;
+    }
+
+    grain += amount * LAND_SELL_PRICE;
+    land -= amount;
+}
+
+void Game::plant() {
+    throw NotImplemented();
 }
 
 void Game::endTurn() {
