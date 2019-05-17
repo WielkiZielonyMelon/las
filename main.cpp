@@ -5,7 +5,7 @@
 #include "overview.hpp"
 #include "helpers.hpp"
 
-int main(int argc, char * argv[]) {
+int main() {
     using std::cout;
     using std::endl;
 
