@@ -121,6 +121,37 @@ void Game::sellLand() {
 }
 
 void Game::plant() {
+    int amount;
+    int maxToPlant = grain * PLANT_COST_10_M2;
+    if (land < maxToPlant) {
+        maxToPlant = land;
+    }
+
+    while (true) {
+        cout << "To plant ten square meters of land you need " << PLANT_COST_10_M2;
+        cout << " bag of grain." << endl;
+        cout << "One square meter will produce at max " << MAX_LAND_PRODUCTION;
+        cout << " bag of grain." << endl;
+        cout << "How much land do you want to plant?" << endl;
+        cin >> amount;
+
+        if (amount == 0) {
+            return;
+        }
+
+        if (amount < 0) {
+            cout << "Can't plant negative amount of land." << endl;
+            continue;
+        }
+
+        if (amount > maxToPlant) {
+            cout << "You can't plant that much." << endl;
+            continue;
+        }
+
+        break;
+    }
+
     throw NotImplemented();
 }
 
