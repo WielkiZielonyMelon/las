@@ -12,6 +12,7 @@ public:
     int harvest();
     void buy(int amount);
     void sell(int amount);
-    int howMuch() const;
+    int howMuchTotal() const;
+    int howMuchSowed() const;
 };
 } // namespace Las

@@ -17,7 +17,8 @@ void Overview::displayInfo(int year, const Serfs & serfs, const Land & land,
         cout << "s";
     }
     cout << "." << endl;
-    cout << "You own " << land.howMuch() << " m^2 of land." << endl;
+    cout << "You own " << land.howMuchTotal() << " m^2 of land." << endl;
+    cout << "Of that " << land.howMuchSowed() << " m^2 is sowed." << endl;
     cout << "You have " << grain << " grain." << endl;
     cout << endl;
 }

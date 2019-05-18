@@ -22,7 +22,11 @@ void Land::sell(int amount) {
     size -= amount;
 }
 
-int Land::howMuch() const {
+int Land::howMuchTotal() const {
     return size;
+}
+
+int Land::howMuchSowed() const {
+    return sowed;
 }
 } // namespace Las
