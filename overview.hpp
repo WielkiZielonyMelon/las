@@ -10,8 +10,6 @@ public:
         END_TURN = 1,
         BUY_LAND,
         SELL_LAND,
-        BUY_GRAIN,
-        SELL_GRAIN,
         PLANT,
         QUIT,
         FIRST_VALID = END_TURN,

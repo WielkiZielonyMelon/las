@@ -39,14 +39,6 @@ Game::Game(int _years, int _serfs, int _land, int _grain) :
             continue;
         }
 
-        if (option == Las::Overview::BUY_GRAIN) {
-            throw NotImplemented();
-        }
-
-        if (option == Las::Overview::SELL_GRAIN) {
-            throw NotImplemented();
-        }
-
         if (option == Las::Overview::PLANT) {
             plant();
             continue;

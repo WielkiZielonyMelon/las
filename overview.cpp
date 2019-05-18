@@ -28,8 +28,6 @@ void Overview::displayOptions() {
     cout << Option::END_TURN << ") end turn" << endl;
     cout << Option::BUY_LAND << ") buy land" << endl;
     cout << Option::SELL_LAND << ") sell land" << endl;
-    cout << Option::BUY_GRAIN << ") buy grain" << endl;
-    cout << Option::SELL_GRAIN << ") sell grain" << endl;
     cout << Option::PLANT << ") plant" << endl;
     cout << Option::QUIT << ") quit" << endl;
     cout << endl;
