@@ -12,7 +12,7 @@ namespace Las {
 Game::Game(int _years, int _serfs, int _land, int _grain) :
     years(_years), serfs(_serfs), land(_land), grain(_grain) {
     while (true) {
-        Las::Overview::displayInfo(currentYear, serfs, land, grain);
+        Las::Overview::displayInfo(currentYear, serfs.serfs, land.size, grain);
         Las::Overview::displayOptions();
         int option = Las::Overview::selectOption();
 
@@ -63,7 +63,7 @@ void Game::buyLand() {
         cout << "To buy one square meter of land you need " << LAND_BUY_PRICE;
         cout << " bags of grain." << endl;
         cout << "You have " << grain << " bags of grain." << endl;
-        cout << "You have " << land << " m^2 of land." << endl;
+        cout << "You have " << land.size << " m^2 of land." << endl;
         cout << "You can buy " << maxToBuy << " m^2 of land." << endl;
         cout << "How much land do you want to buy?" << endl;
         cin >> amount;
@@ -86,7 +86,7 @@ void Game::buyLand() {
     }
 
     grain -= amount * LAND_BUY_PRICE;
-    land += amount;
+    land.buy(amount);
 }
 
 void Game::sellLand() {
@@ -95,7 +95,7 @@ void Game::sellLand() {
         cout << "For one square meter of land you will get " << LAND_SELL_PRICE;
         cout << " bags of grain." << endl;
         cout << "You have " << grain << " bags of grain." << endl;
-        cout << "You have " << land << " m^2 of land." << endl;
+        cout << "You have " << land.size << " m^2 of land." << endl;
         cout << "How much land do you want to sell?" << endl;
         cin >> amount;
 
@@ -108,7 +108,7 @@ void Game::sellLand() {
             continue;
         }
 
-        if (amount > land ) {
+        if (amount > land.size) {
             cout << "You sell more land than you have." << endl;
             continue;
         }
@@ -117,14 +117,14 @@ void Game::sellLand() {
     }
 
     grain += amount * LAND_SELL_PRICE;
-    land -= amount;
+    land.sell(amount);
 }
 
 void Game::plant() {
     int amount;
     int maxToPlant = grain * PLANT_COST_10_M2;
-    if (land < maxToPlant) {
-        maxToPlant = land;
+    if (land.size < maxToPlant) {
+        maxToPlant = land.size;
     }
 
     while (true) {
@@ -152,10 +152,12 @@ void Game::plant() {
         break;
     }
 
-    throw NotImplemented();
+    land.sow(amount);
+    grain -= amount;
 }
 
 void Game::endTurn() {
+    grain += land.harvest();
     ++currentYear;
     --years;
 }

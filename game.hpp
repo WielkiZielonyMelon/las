@@ -1,12 +1,15 @@
 #pragma once
 
+#include "land.hpp"
+#include "serfs.hpp"
+
 namespace Las {
 class Game {
 private:
     int currentYear = 1321;
     int years;
-    int serfs;
-    int land;
+    Serfs serfs;
+    Land land;
     int grain;
 
     const int LAND_BUY_PRICE = 3;
