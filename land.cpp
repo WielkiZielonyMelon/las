@@ -1,7 +1,7 @@
 #include "land.hpp"
 
 namespace Las {
-Land::Land(int _size) : sowed(0), size(_size) {}
+Land::Land(int _size) : size(_size), sowed(0) {}
 
 void Land::sow(int amount) {
     sowed += amount;

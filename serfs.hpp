@@ -2,8 +2,9 @@
 
 namespace Las {
 class Serfs {
-public:
+private:
     int serfs;
+public:
     Serfs(int _serfs) : serfs(_serfs) {}
     int feed(int grain);
     bool alive();

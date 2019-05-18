@@ -67,7 +67,7 @@ void Game::buyLand() {
         cout << "To buy one square meter of land you need " << LAND_BUY_PRICE;
         cout << " bags of grain." << endl;
         cout << "You have " << grain << " bags of grain." << endl;
-        cout << "You have " << land.size << " m^2 of land." << endl;
+        cout << "You have " << land.howMuchTotal() << " m^2 of land." << endl;
         cout << "You can buy " << maxToBuy << " m^2 of land." << endl;
         cout << "How much land do you want to buy?" << endl;
         cin >> amount;
@@ -99,7 +99,7 @@ void Game::sellLand() {
         cout << "For one square meter of land you will get " << LAND_SELL_PRICE;
         cout << " bags of grain." << endl;
         cout << "You have " << grain << " bags of grain." << endl;
-        cout << "You have " << land.size << " m^2 of land." << endl;
+        cout << "You have " << land.howMuchTotal() << " m^2 of land." << endl;
         cout << "How much land do you want to sell?" << endl;
         cin >> amount;
 
@@ -112,7 +112,7 @@ void Game::sellLand() {
             continue;
         }
 
-        if (amount > land.size) {
+        if (amount > land.howMuchTotal()) {
             cout << "You sell more land than you have." << endl;
             continue;
         }
@@ -127,8 +127,8 @@ void Game::sellLand() {
 void Game::plant() {
     int amount;
     int maxToPlant = grain * PLANT_COST_10_M2;
-    if (land.size < maxToPlant) {
-        maxToPlant = land.size;
+    if (land.howMuchTotal() < maxToPlant) {
+        maxToPlant = land.howMuchTotal();
     }
 
     while (true) {

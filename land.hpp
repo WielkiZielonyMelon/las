@@ -3,10 +3,10 @@
 namespace Las {
 class Land {
 private:
+    int size;
     int sowed;
 
 public:
-    int size;
     Land(int _size);
     void sow(int amount);
     int harvest();
