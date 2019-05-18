@@ -12,6 +12,10 @@ namespace Las {
 Game::Game(int _years, int _serfs, int _land, int _grain) :
     years(_years), serfs(_serfs), land(_land), grain(_grain) {
     while (true) {
+        if (!serfs.alive()) {
+            cout << "They are all dead!" << endl;
+            return;
+        }
         Las::Overview::displayInfo(currentYear, serfs.serfs, land.size, grain);
         Las::Overview::displayOptions();
         int option = Las::Overview::selectOption();
@@ -157,6 +161,7 @@ void Game::plant() {
 }
 
 void Game::endTurn() {
+    grain = serfs.feed(grain);
     grain += land.harvest();
     ++currentYear;
     --years;
