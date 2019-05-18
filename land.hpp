@@ -12,5 +12,6 @@ public:
     int harvest();
     void buy(int amount);
     void sell(int amount);
+    int howMuch() const;
 };
 } // namespace Las

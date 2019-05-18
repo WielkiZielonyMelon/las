@@ -16,7 +16,7 @@ Game::Game(int _years, int _serfs, int _land, int _grain) :
             cout << "They are all dead!" << endl;
             return;
         }
-        Las::Overview::displayInfo(currentYear, serfs.serfs, land.size, grain);
+        Las::Overview::displayInfo(currentYear, serfs, land, grain);
         Las::Overview::displayOptions();
         int option = Las::Overview::selectOption();
 

@@ -21,4 +21,8 @@ void Land::buy(int amount) {
 void Land::sell(int amount) {
     size -= amount;
 }
+
+int Land::howMuch() const {
+    return size;
+}
 } // namespace Las

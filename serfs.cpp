@@ -14,4 +14,8 @@ int Serfs::feed(int grain) {
 bool Serfs::alive() {
     return serfs > 0;
 }
+
+int Serfs::howMany() const {
+    return serfs;
+}
 } // namespace Las

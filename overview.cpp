@@ -1,20 +1,23 @@
 #include <iostream>
 
 #include "overview.hpp"
+#include "serfs.hpp"
+#include "land.hpp"
 
 namespace Las {
 using std::cout;
 using std::cin;
 using std::endl;
 
-void Overview::displayInfo(int year, int serfs, int land, int grain) {
+void Overview::displayInfo(int year, const Serfs & serfs, const Land & land,
+                           int grain) {
     cout << "It is year " << year << "." << endl;
-    cout << "You have " << serfs << " serf";
-    if (serfs != 1) {
+    cout << "You have " << serfs.howMany() << " serf";
+    if (serfs.howMany() != 1) {
         cout << "s";
     }
     cout << "." << endl;
-    cout << "You own " << land << " m^2 of land." << endl;
+    cout << "You own " << land.howMuch() << " m^2 of land." << endl;
     cout << "You have " << grain << " grain." << endl;
     cout << endl;
 }
